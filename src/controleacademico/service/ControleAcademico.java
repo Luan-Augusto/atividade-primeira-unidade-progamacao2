@@ -1,5 +1,6 @@
 package controleacademico.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import controleacademico.entidades.Aluno;
@@ -15,6 +16,13 @@ public class ControleAcademico {
 	private List<Curso> cursos;
 	private List<Turma> turmas;
 
+	public ControleAcademico(List<Aluno> alunos, List<Professor> professores, List<Curso> cursos, List<Turma> turmas) {
+		this.alunos = new ArrayList<>();
+		this.professores = new ArrayList<>();
+		this.cursos = new ArrayList<>();
+		this.turmas = new ArrayList<>();
+	}
+
 	public void cadastrarCurso(Curso curso) {
 		cursos.add(curso);
 	}
@@ -25,7 +33,26 @@ public class ControleAcademico {
 
 	public void cadastrarTurma(int ano, int semestre, String disciplina, String nomeCurso, String cpfProfessor) {
 //		TODO - Implementar
+		Curso curso = null;
+		for (Curso c : cursos) {
+			if (c.getNome().equals(nomeCurso)) {
+				curso = c;
+			}
+		}
+		Professor pf = null;
+		for (Professor p : professores) {
+			if (p.getCpf().equals(cpfProfessor)) {
+				pf = p;
+			}
+		}
+
 		Turma t = new Turma();
+		t.setCurso(curso);
+		t.setAno(ano);
+		t.setSemestre(semestre);
+		t.setDisciplina(disciplina);
+		t.setCurso(curso);
+		t.setProfessor(pf);
 		turmas.add(t);
 	}
 
@@ -41,7 +68,6 @@ public class ControleAcademico {
 	public List<Aluno> getTodosOsAlunosDaTurma(int ano, int semestre, String disciplina, String nomeCurso) {
 //		TODO - Implementar
 		return alunos;
-
 	}
 
 	public Professor getProfessorDaTurma(int ano, int semestre, String disciplina, String nomeCurso) {
