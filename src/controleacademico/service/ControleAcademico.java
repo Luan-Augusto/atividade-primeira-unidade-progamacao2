@@ -48,13 +48,12 @@ public class ControleAcademico {
 			}
 		}
 
-		Turma t = new Turma();
-		t.setCurso(curso);
-		t.setAno(ano);
-		t.setSemestre(semestre);
-		t.setDisciplina(disciplina);
-		t.setCurso(curso);
-		t.setProfessor(pf);
+		Turma t = new Turma(ano, semestre, disciplina, curso, pf);
+//		t.setAno(ano);
+//		t.setSemestre(semestre);
+//		t.setDisciplina(disciplina);
+//		t.setCurso(curso);
+//		t.setProfessor(pf);
 		turmas.add(t);
 	}
 

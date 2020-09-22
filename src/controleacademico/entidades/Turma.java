@@ -11,7 +11,7 @@ public class Turma {
 	private Professor professor;
 	private List<Aluno> alunos;
 
-	public Turma(int ano, int semestre, String disciplina, Curso curso, Professor professor, List<Aluno> alunos) {
+	public Turma(int ano, int semestre, String disciplina, Curso curso, Professor professor) {
 		this.ano = ano;
 		this.semestre = semestre;
 		this.disciplina = disciplina;
