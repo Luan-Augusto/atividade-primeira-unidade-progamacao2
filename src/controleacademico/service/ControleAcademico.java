@@ -37,12 +37,14 @@ public class ControleAcademico {
 		for (Curso c : cursos) {
 			if (c.getNome().equals(nomeCurso)) {
 				curso = c;
+				break;
 			}
 		}
 		Professor pf = null;
 		for (Professor p : professores) {
 			if (p.getCpf().equals(cpfProfessor)) {
 				pf = p;
+				break;
 			}
 		}
 
