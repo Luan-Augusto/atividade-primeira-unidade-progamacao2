@@ -23,6 +23,10 @@ public class ControleAcademico {
 		this.turmas = new ArrayList<>();
 	}
 
+	public void matricular(Aluno aluno) {
+		alunos.add(aluno);
+	}
+
 	public void cadastrarCurso(Curso curso) {
 		cursos.add(curso);
 	}
@@ -31,8 +35,8 @@ public class ControleAcademico {
 		professores.add(professor);
 	}
 
+//	Cadastrar uma turma
 	public void cadastrarTurma(int ano, int semestre, String disciplina, String nomeCurso, String cpfProfessor) {
-//		TODO - Implementar
 		Curso curso = null;
 		for (Curso c : cursos) {
 			if (c.getNome().equals(nomeCurso)) {
@@ -57,26 +61,32 @@ public class ControleAcademico {
 		turmas.add(t);
 	}
 
-	public void matricularAluno(Aluno aluno, int ano, int semestre, String disciplina, String nomeCurso) {
-//		TODO - Implementar
+	public void matricularAluno(Aluno aluno, Turma turma) {
 		alunos.add(aluno);
 	}
 
-	public List<Aluno> getTodosOsAluno() {
-		return alunos;
+	public List<Aluno> getTodosOsAluno(Turma turma) {
+		List<Aluno> alunosDataTurma = null;
+		for (Turma t : turmas) {
+			if (t.equals(turma)) {
+				alunosDataTurma = t.getAlunos();
+			}
+		}
+		return alunosDataTurma;
 	}
 
 	public List<Aluno> getTodosOsAlunosDaTurma(int ano, int semestre, String disciplina, String nomeCurso) {
-//		TODO - Implementar
 		return alunos;
 	}
 
-	public Professor getProfessorDaTurma(int ano, int semestre, String disciplina, String nomeCurso) {
-//		TODO - Implementar
-		for (Professor p : professores) {
-
+	public Professor getProfessorDaTurma(Turma turma) {
+		Professor professorRetorno = null;
+		for (Turma t : turmas) {
+			if (t.equals(turma)) {
+				professorRetorno = t.getProfessor();
+			}
 		}
-		return null;
+		return professorRetorno;
 	}
 
 	public static void main(String[] args) {
