@@ -23,6 +23,10 @@ public class ControleAcademico {
 		this.turmas = new ArrayList<>();
 	}
 
+	public ControleAcademico() {
+		super();
+	}
+
 	public void matricular(Aluno aluno) {
 		alunos.add(aluno);
 	}
@@ -91,6 +95,17 @@ public class ControleAcademico {
 
 	public static void main(String[] args) {
 
+		ControleAcademico controle = new ControleAcademico();
+
+		// Coloco as String sempre sem acentos ou caracteres UTF-8 pois
+		// eles mudam de IDE para IDE
+		Curso curso = new Curso("Sistemas de Informacao");
+		controle.cadastrarCurso(curso);
+
+		Professor professor = new Professor("000.000.000-00", "Girafalez", "3333-3333", "12343224");
+		controle.cadastrarProfessor(professor);
+
+//		TODO - Implementando os testes
 	}
 
 }
